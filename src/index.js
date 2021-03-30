@@ -20,7 +20,7 @@ const hotels = [
 ]
 
 const createHotelEntry = hotel => {
-    const hotelEntry = document.createElement("div")
+    const hotelEntry = document.createElement("article")
     hotelEntry.className = "hotel-entry"
     hotelEntry.innerHTML = 
     `<span class="hotel-entry-name">${hotel.name}</span>
@@ -32,7 +32,7 @@ const createHotelEntry = hotel => {
 
 // Comment this out to start 
 
-const hotelContainer = document.getElementsById("hotel-container")
+const hotelContainer = document.getElementById("hotel-container")
 for (i = 0; i < hotels.length; i++) {
     hotelContainer.append(createHotelEntry(hotels[i]));
 }
@@ -67,8 +67,8 @@ const discountInputBox = document.getElementById("discount-input-box")
 const hotelSearchBoxButton = document.getElementById("hotel-search-box-button")
 
 hotelSearchBoxButton.addEventListener('click', () => {
-    console.log("hotelSearchBox value: " + hotelSearchBox.value)
-    console.log("discountInputBox value: " + discountInputBox.value)
+    console.log("location: " + hotelSearchBox.value)
+    console.log("discount: " + discountInputBox.value)
 
     // code here
 })
