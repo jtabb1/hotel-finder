@@ -11,12 +11,35 @@
 </head>
 <body>
     <main>
-        <h1>Hotels</h1>
-        <input id="hotel-search-box" placeholder="filter by location"/>
-        <input id="discount-input-box" placeholder="discount" type="number"/>
-        <button id="hotel-search-box-button">Search</button>
+        <section class="container py-5 text-center">
 
-        <section id="hotel-container" class="hotel-container">
+            <h1>Hotels</h1>
+            <p class="text-muted">Find the best hotel for the best price</p>
+            <div class="container">
+
+                <div class="input-group mb-2 d-flex justify-content-center">
+                    <input id="hotel-search-box" class="w-25" placeholder="location"/>
+                </div>
+                <div class="input-group mb-2 d-flex justify-content-center">
+                    <input class="w-25" id="discount-input-box" placeholder="discount" type="number"/>
+                </div>
+                <button class="btn btn-primary" id="hotel-search-box-button">Search</button>
+            </div>
+        </section>
+
+        <section class="container bg-light border">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Location</th>
+                    </tr>
+                </thead>
+                <tbody id="hotel-container">
+
+                </tbody>
+            </table>
         </section>
     </main>
 </body>

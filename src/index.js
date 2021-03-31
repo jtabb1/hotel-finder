@@ -20,13 +20,12 @@ const hotels = [
 ]
 
 const createHotelEntry = hotel => {
-    const hotelEntry = document.createElement("article")
+    const hotelEntry = document.createElement("tr")
     hotelEntry.className = "hotel-entry"
     hotelEntry.innerHTML = 
-    `<span class="hotel-entry-name">${hotel.name}</span>
-    <span class="hotel-entry-price">${hotel.price}</span>
-    <span class="hotel-entry-location">${hotel.location}</span>
-    `
+    `<td class="hotel-entry-name">${hotel.name}</td>
+    <td class="hotel-entry-price">${hotel.price}</td>
+    <td class="hotel-entry-location">${hotel.location}</td>`
     return hotelEntry
 }
 
