@@ -59,7 +59,7 @@ const filterHotelsByLocation = (hotels, location) => {
     // define function here
 }
 
-// OBJECTIVE 5: put it all together
+// OBJECTIVE 5: Use functions with search button
 
 const hotelSearchBox = document.getElementById("hotel-search-box")
 const discountInputBox = document.getElementById("discount-input-box")
@@ -69,7 +69,7 @@ hotelSearchBoxButton.addEventListener('click', () => {
     console.log("location: " + hotelSearchBox.value)
     console.log("discount: " + discountInputBox.value)
 
-    // code here
+    // plan steps and code here
 })
 
 
