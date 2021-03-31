@@ -29,7 +29,7 @@ const createHotelEntry = hotel => {
     return hotelEntry
 }
 
-// Comment this out to start 
+// Comment the following for statement to start 
 
 const hotelContainer = document.getElementById("hotel-container")
 for (i = 0; i < hotels.length; i++) {
