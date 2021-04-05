@@ -1,3 +1,23 @@
+// bubbling and default action demonstrations
+
+// const testButton = document.getElementById('test-button')
+// testButton.addEventListener("click", (e) => {
+//     e.stopPropagation()
+//     console.log("You clicked the button")
+// })
+
+// const testDiv = document.getElementById('test-div')
+// testDiv.addEventListener("click", (e) => {
+//     console.log("You clicked the test div")
+// })
+
+// const testCheckbox = document.getElementById('test-checkbox')
+// testCheckbox.addEventListener('click', (e) => {
+//     e.stopPropagation()
+//     e.preventDefault()
+//     console.log(e)
+// })
+
 const hotels = [
     {name: "Marriot", price: 400, location: "San Diego"},
     {name: "Day's Inn", price: 325, location: "Tacoma"},
@@ -43,10 +63,28 @@ const hotelContainer = document.getElementById("hotel-container")
 
 // hotels.forEach(hotel => hotelContainer.append(hotelEntry(hotel)))
 
+// hotels.forEach((hotel) => {
+//     const entry = hotelEntry(hotel)
+//     hotelContainer.append(entry)
+// })
+
+
+// what does map do?
+
+// create an array
+// add each element to that array with modifications
+// return that array
+
+// forEach
+
+// execute an action with access to each element
+// return undefined
+
 // map example (doesn't work)
 
 // const mappedHotels = hotels.map(hotel => hotelEntry(hotel))
-// hotelContainer.append(hotelEntry(mappedHotels))
+// hotelContainer.innerHTML = Object.toString(hotels)
+// console.log(mappedHotels.join(""))
 
 // map statements create an array. Node.append() only works on other 
 // HTML nodes.
@@ -59,7 +97,16 @@ const hotelContainer = document.getElementById("hotel-container")
 
 const showHotels = (hotels) => {
     // define function here
+    hotels.forEach((hotel) => {
+        const entry = hotelEntry(hotel)
+        hotelContainer.append(entry)
+    })
 }
+
+// showHotels(hotels)
+
+
+
 
 
 
@@ -69,18 +116,29 @@ const showHotels = (hotels) => {
 
 const applyDiscounts = (hotels) => {
     // define function here
+    const newHotels = hotels.map((hotel) => {
+        // let newPrice = hotel.price * 0.8
+        // const newHotel = Object.assign({}, hotel, {price: newPrice})
+
+        // const newHotel = {...hotel}
+        // newHotel.price = newPrice
+
+        // const newHotel = {...hotel, price: newPrice}
+
+        const newHotel = {...hotel, price: hotel.price * 0.8}
+
+        return newHotel;
+    })
+
+    // const newHotels = hotels.map(hotel => ({...hotel, price: hotel.price * 0.8}))
+
+    return newHotels
 }
 
+showHotels(applyDiscounts(hotels))
 
-
-
-
-// OBJECTIVE 3: calculate the average hotel price (reduce)
-
-const calculateAverageHotelPrice = (hotels) => {
-    // define function here
-}
-
+console.log(applyDiscounts(hotels))
+console.log(hotels)
 
 
 
@@ -93,9 +151,20 @@ const filterHotelsByLocation = (hotels, location) => {
 
 
 
-
-
 // OBJECTIVE 5: Add an event listener to the search button that filters
 // with the functions you created above
 
 
+
+
+
+
+
+
+
+
+// OBJECTIVE 3: calculate the average hotel price (reduce)
+
+const calculateAverageHotelPrice = (hotels) => {
+    // define function here
+}
