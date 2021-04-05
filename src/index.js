@@ -19,7 +19,7 @@ const hotels = [
     {name: "Four Seasons", price: 225, location: "Tacoma"}
 ]
 
-const createHotelEntry = hotel => {
+const hotelEntry = hotel => {
     const hotelEntry = document.createElement("tr")
     hotelEntry.className = "hotel-entry"
     hotelEntry.innerHTML = 
@@ -29,12 +29,31 @@ const createHotelEntry = hotel => {
     return hotelEntry
 }
 
-// Comment the following for statement to start 
+// OBJECTIVE 0: Append all of the hotel entries on page load
 
 const hotelContainer = document.getElementById("hotel-container")
-for (i = 0; i < hotels.length; i++) {
-    hotelContainer.append(createHotelEntry(hotels[i]));
-}
+
+// for example
+
+// for (let i = 0; i < hotels.length; i++) {
+//     hotelContainer.append(hotelEntry(hotels[i]))
+// }
+
+// forEach example
+
+// hotels.forEach(hotel => hotelContainer.append(hotelEntry(hotel)))
+
+// map example (doesn't work)
+
+// const mappedHotels = hotels.map(hotel => hotelEntry(hotel))
+// hotelContainer.append(hotelEntry(mappedHotels))
+
+// map statements create an array. Node.append() only works on other 
+// HTML nodes.
+
+
+
+
 
 // OBJECTIVE 1: append a hotel entry for each hotel in an array (forEach)
 
@@ -42,10 +61,19 @@ const showHotels = (hotels) => {
     // define function here
 }
 
+
+
+
+
 // OBJECTIVE 2: apply 20% discount to each hotel price (map)
+
 const applyDiscounts = (hotels) => {
     // define function here
 }
+
+
+
+
 
 // OBJECTIVE 3: calculate the average hotel price (reduce)
 
@@ -53,24 +81,21 @@ const calculateAverageHotelPrice = (hotels) => {
     // define function here
 }
 
+
+
+
+
 // OBJECTIVE 4: filter hotels by given location (filter)
 
 const filterHotelsByLocation = (hotels, location) => {
     // define function here
 }
 
-// OBJECTIVE 5: Use functions with search button
 
-const hotelSearchBox = document.getElementById("hotel-search-box")
-const discountInputBox = document.getElementById("discount-input-box")
-const hotelSearchBoxButton = document.getElementById("hotel-search-box-button")
 
-hotelSearchBoxButton.addEventListener('click', () => {
-    console.log("location: " + hotelSearchBox.value)
-    console.log("discount: " + discountInputBox.value)
 
-    // plan steps and code here
-})
 
+// OBJECTIVE 5: Add an event listener to the search button that filters
+// with the functions you created above
 
 

@@ -6,7 +6,7 @@
 [ ] Use filter statements
 
 # Objectives
-[ ] 
+[ ] Hashketball exercises
 
 [ ] Hotel Finder
     [ ] Append each hotel with a forEach statement
@@ -16,7 +16,9 @@
     [ ] Combine methods to create a working application
 
 # Vocab
-[ ] Nesting
+[ ] destructive
+[ ] non-destructive
+[ ] nesting
 [ ] JSON
 [ ] .forEach()
 [ ] .map()
