@@ -1,8 +1,14 @@
+
+// const testButton = document.getElementById('test-button');
+// testButton.addEventListener("click", (e) => {
+//     console.log(e.target);
+// });
+
 // bubbling and default action demonstrations
 
 // const testButton = document.getElementById('test-button')
 // testButton.addEventListener("click", (e) => {
-//     e.stopPropagation()
+//     // e.stopPropagation()
 //     console.log("You clicked the button")
 // })
 
@@ -40,13 +46,13 @@ const hotels = [
 ]
 
 const hotelEntry = hotel => {
-    const hotelEntry = document.createElement("tr")
-    hotelEntry.className = "hotel-entry"
+    const hotelEntry = document.createElement("tr");
+    hotelEntry.className = "hotel-entry";
     hotelEntry.innerHTML = 
     `<td class="hotel-entry-name">${hotel.name}</td>
     <td class="hotel-entry-price">${hotel.price}</td>
-    <td class="hotel-entry-location">${hotel.location}</td>`
-    return hotelEntry
+    <td class="hotel-entry-location">${hotel.location}</td>`;
+    return hotelEntry;
 }
 
 // OBJECTIVE 0: Append all of the hotel entries on page load
@@ -54,10 +60,10 @@ const hotelEntry = hotel => {
 const hotelContainer = document.getElementById("hotel-container")
 
 // for example
-
-// for (let i = 0; i < hotels.length; i++) {
-//     hotelContainer.append(hotelEntry(hotels[i]))
-// }
+/*
+for (let i = 0; i < hotels.length; i++) {
+    hotelContainer.append(hotelEntry(hotels[i]))
+}
 
 // forEach example
 
@@ -90,29 +96,53 @@ const hotelContainer = document.getElementById("hotel-container")
 // HTML nodes.
 
 
+*/
 
 
+// displayHotels(hotels);
 
-// OBJECTIVE 1: append a hotel entry for each hotel in an array (forEach)
+// const showHotels = (hotels) => {
+//     hotels.forEach( (hotel) => {
+//         const entry = hotelEntry(hotel);
+//         hotelContainer.append(entry);
+//     });
+// };
 
-const showHotels = (hotels) => {
-    // define function here
-    hotels.forEach((hotel) => {
-        const entry = hotelEntry(hotel)
-        hotelContainer.append(entry)
-    })
-}
-
-// showHotels(hotels)
-
-
-
+// showHotels(hotels);
 
 
 
 
 
-// OBJECTIVE 2: apply 20% discount to each hotel price (map)
+// const discountedHotels = (hotels, discount) => {
+//     // Curious thing: can't do (hotel, discount) => ... below
+//     //  as it appears that JS takes that as an index parameter
+//     //  for the map function instead of another parameter for the
+//     //  callback function;
+//     const newObjArr = hotels.map( (hotel) => {
+//         const newPrice = (100 - discount) * hotel.price / 100;
+//         const newObj = {...hotel, price: newPrice};
+//         return newObj;
+//     });
+//     return newObjArr;
+// }
+
+// displayHotels(discountedHotels(hotels, discount));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const applyDiscounts = (hotels) => {
     // define function here
@@ -135,29 +165,68 @@ const applyDiscounts = (hotels) => {
     return newHotels
 }
 
-showHotels(applyDiscounts(hotels))
+// showHotels(applyDiscounts(hotels))
 
-console.log(applyDiscounts(hotels))
-console.log(hotels)
+// console.log(applyDiscounts(hotels))
+// console.log(hotels)
 
 
+// OBJECTIVE 1: append a hotel entry for each hotel in an array (forEach)
+const displayHotels = (hotels) => {
+    hotels.forEach( (hotel) => {
+        hotelContainer.append(hotelEntry(hotel));
+    });}
 
+// OBJECTIVE 2: apply 20% discount to each hotel price (map)
+const discountedHotels = (hotels, discount) => {
+    const newObjArr = hotels.map( (hotel) => {
+        const newPrice = (100 - discount) * hotel.price / 100;
+        const newObj = {...hotel, price: newPrice};
+        return newObj;
+    });
+    return newObjArr;}
+// const discount = 20;
+// displayHotels(discountedHotels(hotels));
 
 // OBJECTIVE 4: filter hotels by given location (filter)
-
-const filterHotelsByLocation = (hotels, location) => {
-    // define function here
-}
-
-
+const filterHotelsByLocation = (hotels) => {
+    const newObjArr = hotels.filter( hotel => hotel.location === xlocation);
+    return newObjArr;}
+// let xlocation = "San Diego";
+// displayHotels(filterHotelsByLocation(hotels));
 
 // OBJECTIVE 5: Add an event listener to the search button that filters
 // with the functions you created above
-
-
-
-
-
+displayHotels(hotels);
+const btn = document.getElementById("hotel-search-box-button");
+const xlocationNode = document.getElementById("hotel-search-box");
+const discountNode = document.getElementById("discount-input-box");
+btn.addEventListener("click", (e) => {
+    console.log("hello");
+    const xlocation = xlocationNode.value;
+    const discount = discountNode.value;
+    console.log(xlocation);
+    console.log(discount);
+    if (xlocation === "") {
+        if (discount === "") {
+            console.log("hello-1")
+            return;
+        } else {
+            console.log("hello-2")
+            console.log(discount);
+            displayHotels(discountedHotels(hotels, discount));
+        }
+    } else {
+        if (discount === "") {
+            console.log("hello-3")
+            displayHotels(filterHotelsByLocation(hotels));
+        } else {
+            console.log("hello-4")
+            displayHotels(discountedHotels(
+                filterHotelsByLocation(hotels)));
+        }
+    }
+})
 
 
 
@@ -168,3 +237,5 @@ const filterHotelsByLocation = (hotels, location) => {
 const calculateAverageHotelPrice = (hotels) => {
     // define function here
 }
+
+/**/
